@@ -1,0 +1,543 @@
+/* Background */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0f172a;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+}
+
+/* Card */
+
+.login-card {
+  width: 420px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.15);
+
+  text-align: center;
+
+  animation: fadeIn 0.5s ease;
+}
+
+/* Logo */
+
+.app-title {
+  font-size: 34px;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* Toggle Buttons */
+
+.toggle-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #e5e7eb;
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.toggle-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.toggle-buttons .active {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Inputs */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  padding: 14px;
+  margin-bottom: 15px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+
+  box-shadow:
+    0 0 0 4px rgba(79,70,229,0.15);
+}
+
+/* Main Button */
+
+.submit-btn {
+  background: #4f46e5;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 14px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #4338ca;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 20px rgba(79,70,229,0.3);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Forgot Password */
+
+.forgot-password {
+  margin-top: 18px;
+
+  color: #4f46e5;
+
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.forgot-password:hover {
+  color: #312e81;
+}
+
+/* Error */
+
+.error {
+  color: #dc2626;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 0 auto 15px;
+}
+
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+.dashboard-layout,
+.content {
+  background: #0f172a !important;
+  color: white !important;
+}
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  width: 50px;
+  height: 50px;
+color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+
+  border-radius: 12px;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  z-index: 1001;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  transform: scale(1.05);
+}
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: -280px;
+
+  width: 260px;
+  height: 100vh;
+
+
+
+  box-shadow:
+    4px 0 20px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+
+  z-index: 1000;
+
+  padding-top: 80px;
+  
+  background: #111827;
+  color: white;
+
+}
+
+.sidebar.open {
+  left: 0;
+}
+.sidebar .logo-circle {
+  margin: auto;
+}
+
+.sidebar .app-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menu-item {
+  padding: 16px 25px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+ border-left: 3px solid transparent;
+ color: #cbd5e1;
+}
+
+.menu-item:hover {
+background: #1e293b;
+  color: #60a5fa;
+  border-left: 3px solid #3b82f6;
+
+  padding-left: 40px;
+}
+.content {
+  width: 100%;
+  padding: 80px 40px;
+  transition: all 0.3s ease;
+   background: #0f172a;
+  min-height: 100vh;
+}
+
+.sidebar.open ~ .content {
+  margin-left: 260px;
+}
+.content.sidebar-active {
+  margin-left: 260px;
+}
+
+ .cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 25px;
+}
+
+.card {
+  background: #1e293b;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  color: white;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 40px rgba(37,99,235,0.3);
+}
+.card h2 {
+  color: #60a5fa;
+  font-size: 32px;
+}
+.content h1 {
+  margin-bottom: 30px;
+color:white;
+}
+.content h3 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+
+   color: #60a5fa;
+}
+
+.content h4 {
+  color: #93c5fd;
+}
+
+.content p {
+  margin-bottom: 12px;
+   color: #e2e8f0;
+}
+
+.content.sidebar-active {
+  margin-left: 260px;
+}
+
+.expense-form button,
+.content button {
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #4f46e5;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.content button:hover {
+  background: #4338ca;
+
+  transform: translateY(-2px);
+}
+.dashboard-card-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+   min-height: 100vh;
+  color: white;
+}
+.sidebar .app-title {
+  color: white;
+}
+@media (max-width: 900px) {
+
+  .cards {
+    grid-template-columns: 1fr;
+  }}
+.add-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Top header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.page-header h2{
+color:white;
+}
+/* Button row */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+td button {
+  margin-right: 8px;
+}
+.table tbody tr:hover {
+  background: #334155;
+}
+.action-buttons button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Center form card */
+.center-card {
+  max-width: 500px;
+  margin: auto;
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Make inputs full clean */
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  margin-bottom: 15px;
+  background: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+  padding: 14px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  margin-right: 15px;
+}
+
+.menu-item logout{
+  color:red;
+  font-size:20px;
+}
+table {
+  width: 100%;
+  color: white;
+  background: #1e293b;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 16px;
+    table-layout: fixed;
+
+}
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+th, td {
+  padding: 14px;
+  border-bottom: 1px solid #334155;
+    border-right: 1px solid #334155;
+  color: white;
+}
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+th {
+ background: #111827;
+  color: #60a5fa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+ul li {
+  color: white;
+  padding: 10px;
+  background: #1e293b;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+.logout {
+  color: #ef4444;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.logout:hover {
+  background: #7f1d1d;
+  color: white;
+  border-radius: 10px;
+}
+.expense-form {
+  max-width: 500px;
+  margin: 20px auto;
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 16px;
+  
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-top: 20px;
+
+}
