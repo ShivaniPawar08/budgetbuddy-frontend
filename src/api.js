@@ -1,0 +1,1 @@
+export const BASE_URL = "https://budgetbuddy-backend-x8ae.onrender.com";

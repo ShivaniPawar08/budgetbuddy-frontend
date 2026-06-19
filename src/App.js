@@ -2,6 +2,7 @@ import Dashboard from "./Dashboard";
 import { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { BASE_URL } from "./api";
 
 
 function App() {
@@ -26,13 +27,10 @@ function App() {
 
     if (isLogin) {
 
-      const res = await axios.post(
-        "http://localhost:8080/auth/login",
-        {
-          email,
-          password
-        }
-      );
+      const res = await axios.post(`${BASE_URL}/auth/login`, {
+  email,
+  password
+});
 
       if (typeof res.data === "string") {
         alert(res.data);
@@ -50,8 +48,8 @@ function App() {
     } else {
 
       const res = await axios.post(
-        "http://localhost:8080/auth/register",
-        {
+        `${BASE_URL}/auth/register`, {
+        
           name,
           email,
           password

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "./api";
 import {
   PieChart,
   Pie,
@@ -94,7 +95,7 @@ useEffect(() => {
 const fetchWeekly = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/expense/weekly-trend?userId=${userId}`
+      `${BASE_URL}/expense/weekly-trend?userId=${userId}`
     );
 console.log("RAW RESPONSE:", res.data);
     const formatted = Object.keys(res.data).map((key) => ({
@@ -112,7 +113,7 @@ console.log("RAW RESPONSE:", res.data);
 const fetchTrend = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/expense/monthly-trend?userId=${userId}`
+      `${BASE_URL}/expense/monthly-trend?userId=${userId}`
     );
 
     const formatted = Object.keys(res.data).map((key) => ({
@@ -142,7 +143,7 @@ const fetchTrend = async () => {
   const fetchBalance = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/dashboard/balance?userId=${userId}`
+        `${BASE_URL}/dashboard/balance?userId=${userId}`
       );
       setBalance(res.data);
     } catch (err) {
@@ -159,7 +160,7 @@ const fetchTrend = async () => {
   }
 
   const res = await axios.get(
-    `http://localhost:8080/expense/weekly-comparison?userId=${userId}`
+    `${BASE_URL}/expense/weekly-comparison?userId=${userId}`
   );
 
   setCurrentWeek(res.data.currentWeek);
@@ -168,7 +169,7 @@ const fetchTrend = async () => {
 const fetchCategorySummary = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/expense/category-summary?userId=${userId}`
+      `${BASE_URL}/expense/category-summary?userId=${userId}`
     );
 
     setCategorySummary(res.data);
@@ -186,7 +187,7 @@ const topCategory =
   const fetchExpenses = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/expense/all?userId=${userId}`
+        `${BASE_URL}/expense/all?userId=${userId}`
       );
 
       console.log("Expenses:", res.data);
@@ -201,7 +202,7 @@ const topCategory =
   const addExpense = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:8080/expense/add?userId=${userId}`,
+        `${BASE_URL}/expense/add?userId=${userId}`,
         {
           title,
           amount: parseFloat(amount),
@@ -227,7 +228,7 @@ const topCategory =
   const deleteExpense = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:8080/expense/delete/${id}`
+        `${BASE_URL}/expense/delete/${id}`
       );
 
       alert("Deleted Successfully");
@@ -256,7 +257,7 @@ const topCategory =
 
     try {
       await axios.put(
-        `http://localhost:8080/expense/update/${id}`,
+        `${BASE_URL}/expense/update/${id}`,
         {
           title: newTitle,
           amount: parseFloat(newAmount),
@@ -287,7 +288,7 @@ const topCategory =
   try {
 
     const res = await axios.post(
-      `http://localhost:8080/budget/set?userId=${userId}&amount=${amount}`
+      `${BASE_URL}/budget/set?userId=${userId}&amount=${amount}`
     );
 
     alert(res.data);
@@ -302,7 +303,7 @@ const topCategory =
 const fetchBudget = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/budget/get?userId=${userId}`
+      `${BASE_URL}/budget/get?userId=${userId}`
     );
 
     setBudget(res.data);
@@ -403,7 +404,7 @@ const calculateCategoryTotals = () => {
 const fetchMonthlyComparison = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/expense/monthly-comparison?userId=${userId}`
+      `${BASE_URL}/expense/monthly-comparison?userId=${userId}`
     );
 
     setCurrentMonth(res.data.currentMonth);
