@@ -504,11 +504,11 @@ const calculateAdvice = () => {
 
 <div
   className="menu-item"
-  onClick={() => {
-    setActivePage("add");
-    setSidebarOpen(false);
-   setShowForm(showForm);
-  }}
+ onClick={() => {
+  setActivePage("add");
+  setSidebarOpen(false);
+  setShowForm(true);
+}}
 >
    Add Expense
 </div>
